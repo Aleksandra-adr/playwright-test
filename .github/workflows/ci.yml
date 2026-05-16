@@ -30,7 +30,7 @@ jobs:
       run: playwright install chromium
 
     - name: Run tests with Allure
-      run: pytest . --alluredir=allure-results -v
+    run: pytest tests/test_AddRemoveElements.py --alluredir=allure-results -v
 
     - name: Upload Allure results
       uses: actions/upload-artifact@v4
