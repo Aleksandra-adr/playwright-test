@@ -1,15 +1,13 @@
 import allure
-@allure.feature("Управление элементами")
-@allure.story("Добавление и удаление элементов")
-@allure.title("Тест Add/Remove Element")
-@allure.severity(allure.severity_level.CRITICAL)
-
-
-from conftest import main_tab
+#from conftest import main_tab
 from helpers.visual_helpers import color_element, closing_element
 from pages.home_page import HomePage
 import time
 
+@allure.feature("Управление элементами")
+@allure.story("Добавление и удаление элементов")
+@allure.title("Тест Add/Remove Element")
+@allure.severity(allure.severity_level.CRITICAL)
 
 def test_add_remove_elements_test(main_tab):
     with allure.step("Переход на страницу Add/Remove Element"):
