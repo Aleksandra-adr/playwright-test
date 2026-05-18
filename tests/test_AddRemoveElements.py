@@ -1,3 +1,10 @@
+import allure
+@allure.feature("Управление элементами")
+@allure.story("Добавление и удаление элементов")
+@allure.title("Тест Add/Remove Element")
+@allure.severity(allure.severity_level.CRITICAL)
+
+
 from conftest import main_tab
 from helpers.visual_helpers import color_element, closing_element
 from pages.home_page import HomePage
@@ -5,38 +12,49 @@ import time
 
 
 def test_add_remove_elements_test(main_tab):
-    home = HomePage(main_tab)
-    home.go('Add/Remove Elements')
+    with allure.step("Переход на страницу Add/Remove Element"):
+        home = HomePage(main_tab)
+        home.go('Add/Remove Elements')
 
-    h3 = main_tab.locator('h3')
-    color_element(h3, 'red', 'lightcoral')
-    time.sleep(1)
-    assert h3.text_content() == "Add/Remove Elements"
-    closing_element(h3)
-
-    button_add = main_tab.locator('//button[@onclick="addElement()"]')
-    color_element(button_add, 'blue', 'lightblue')
-    time.sleep(1.5)
-    assert button_add.text_content() == "Add Element"
-    closing_element(button_add)
-
-    for i in range(5):
-        print(f"Нажатие номер {i + 1}")
-
-        button_add.click()
+    with allure.step("Проверка заголовка"):
+        h3 = main_tab.locator('h3')
+        color_element(h3, 'red', 'lightcoral')
         time.sleep(1)
+        assert h3.text_content() == "Add/Remove Elements"
+        closing_element(h3)
 
-    button_delete = main_tab.locator('//button[@class="added-manually"]')
-    assert button_delete.count() == 5
+    with allure.step("Проверка кнопки Add element"):
+        button_add = main_tab.locator('//button[@onclick="addElement()"]')
+        color_element(button_add, 'blue', 'lightblue')
+        time.sleep(1.5)
+        assert button_add.text_content() == "Add Element"
+        closing_element(button_add)
 
-    for i in range(3):
-        first_delete = button_delete.first
-        color_element(first_delete, 'red', 'lightcoral')
-        time.sleep(2)
-        first_delete.click()
-        time.sleep(0.5)
+    with allure.step("Добавление 5 элементов"):
+        for i in range(5):
+            print(f"Нажатие номер {i + 1}")
 
-    assert button_delete.count() == 2
+            button_add.click()
+            time.sleep(1)
+
+    with allure.step("Проверка количества кнопок Delete"):
+        button_delete = main_tab.locator('//button[@class="added-manually"]')
+        assert button_delete.count() == 5
+
+    with allure.step("Удаление 3 элементов"):
+        for i in range(3):
+            first_delete = button_delete.first
+            color_element(first_delete, 'red', 'lightcoral')
+            time.sleep(2)
+            first_delete.click()
+            time.sleep(0.5)
+
+    with allure.step("Проверка окончательного количества кнопок"):
+        assert button_delete.count() == 2
+
+
+
+
 #     with sync_playwright() as p:
 #         browser = p.chromium.launch(headless=False)
 #         tab = browser.new_page()
