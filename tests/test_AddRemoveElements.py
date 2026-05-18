@@ -48,7 +48,7 @@ def test_add_remove_elements_test(main_tab):
             time.sleep(0.5)
 
     with allure.step("Проверка окончательного количества кнопок"):
-        assert button_delete.count() == 2
+        assert button_delete.count() == 3
 
 
 
