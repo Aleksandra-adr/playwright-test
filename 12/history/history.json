@@ -1,0 +1,1 @@
+{"a92bc9bead02fa1631a22b91c47f7ca7":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"48ca261daccd7837","reportUrl":"https://Aleksandra-adr.github.io/playwright-test/11/#testresult/48ca261daccd7837","status":"passed","time":{"start":1778954752841,"stop":1778954768788,"duration":15947}}]}}
