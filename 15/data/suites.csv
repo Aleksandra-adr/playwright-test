@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","15904","Тест Add/Remove Element","tests","Mon May 18 07:14:25 UTC 2026","failed","Mon May 18 07:14:41 UTC 2026","","test_AddRemoveElements","",""
