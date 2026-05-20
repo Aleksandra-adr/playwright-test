@@ -1,6 +1,6 @@
 import time
 
-from conftest import main_tab
+from conftest_ui import main_tab
 
 
 def test_file_upload(main_tab):

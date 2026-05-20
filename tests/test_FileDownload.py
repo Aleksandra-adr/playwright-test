@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from playwright.sync_api import expect
-from conftest import main_tab
+from conftest_ui import main_tab
 
 
 

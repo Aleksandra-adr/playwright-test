@@ -1,6 +1,6 @@
 from pyexpat.errors import messages
 
-from conftest import main_tab
+from conftest_ui import main_tab
 
 
 def test_form_authentication_positive(main_tab):

@@ -2,7 +2,7 @@ import time
 
 from selenium.webdriver.common.devtools.v136.fetch import continue_request
 
-from conftest import main_tab
+from conftest_ui import main_tab
 
 
 def test_floating_menu_simple(main_tab):

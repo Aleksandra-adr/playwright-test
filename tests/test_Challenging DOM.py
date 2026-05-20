@@ -1,5 +1,5 @@
 import time
-from conftest import closing_element, color_element
+from conftest_ui import closing_element, color_element
 from playwright.sync_api import sync_playwright
 
 

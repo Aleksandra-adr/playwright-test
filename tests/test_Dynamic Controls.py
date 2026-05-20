@@ -1,4 +1,4 @@
-from conftest import main_tab
+from conftest_ui import main_tab
 
 
 
