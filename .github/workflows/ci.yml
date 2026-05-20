@@ -2,10 +2,8 @@ name: API Tests
 
 on:
   push:
-    branches: [ api-tests ]   # запускается только при пуше в ветку api-tests
-  pull_request:
     branches: [ api-tests ]
-  workflow_dispatch:          # позволяет запускать вручную
+  workflow_dispatch:
 
 jobs:
   api-test:
@@ -24,6 +22,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests pytest allure-pytest
+
+      - name: Remove UI conftest (to avoid playwright import)
+        run: rm -f conftest.py
 
       - name: Run API tests
         run: pytest API_tests/test_basic_auth_api.py -v --alluredir=allure-results
